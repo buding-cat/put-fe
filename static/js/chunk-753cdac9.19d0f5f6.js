@@ -500,21 +500,7 @@
               , n = t._self._c || e;
             return n("div", {
                 staticClass: "corner-bar"
-            }, [n("div", {
-                staticClass: "item",
-                on: {
-                    click: function(e) {
-                        t.isDarkMode = !t.isDarkMode
-                    }
-                }
-            }, [n("svg-icon", {
-                staticStyle: {
-                    "font-size": "28px"
-                },
-                attrs: {
-                    name: t.isDarkMode ? "moon" : "sun"
-                }
-            })], 1), n("div", {
+            },})], 1), n("div", {
                 staticClass: "item",
                 on: {
                     click: t.DailySign

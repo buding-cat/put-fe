@@ -884,8 +884,11 @@
                         this.$message.error('请先登录');
                         return;
                     }
-
-                    fetch('/api/v1/user/signin', {
+                    
+                    // 从window环境变量获取serverUrl
+                    const serverUrl = window.serverUrl || '';
+                    
+                    fetch(`${serverUrl}/api/v1/user/signin`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',

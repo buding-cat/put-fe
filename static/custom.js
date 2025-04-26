@@ -16,18 +16,23 @@ function checkAndSetLanguage() {
 // 执行检查
 checkAndSetLanguage();
 
+// 首先设置本地存储为浅色模式
+localStorage.setItem('__AURORA__Darkmode', '{"value":"light","expire":null}');
+console.log('初始化: 已将主题设置为浅色模式 (light)');
+
+// 然后修改 isDarkMode 函数确保它始终返回 false
 function isDarkMode() {
-  var themeMedia = window.matchMedia('(prefers-color-scheme: dark)')
-  var isDark = false
-  var localMode = JSON.parse(localStorage.getItem('__AURORA__Darkmode') || '{}').value
-
-  if (localMode !== undefined) {
-    isDark = localMode === 'dark'
-  } else if (EnvConfig.appTheme === 'dark') {
-    isDark = true
-  } else if (EnvConfig.appTheme === 'auto') {
-    isDark = themeMedia.matches
-  }
-  return isDark
+  console.log('isDarkMode 函数被调用');
+  
+  // 读取当前设置（仅用于日志）
+  var currentSetting = localStorage.getItem('__AURORA__Darkmode');
+  console.log('调用前的主题设置:', currentSetting);
+  
+  // 强制设置为浅色模式
+  localStorage.setItem('__AURORA__Darkmode', '{"value":"light","expire":null}');
+  console.log('已重新设置主题为浅色模式 (light)');
+  
+  // 始终返回 false，表示使用浅色模式
+  console.log('返回值: false (浅色模式)');
+  return false;
 }
-

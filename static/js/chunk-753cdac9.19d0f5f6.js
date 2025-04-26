@@ -500,7 +500,7 @@
               , n = t._self._c || e;
             return n("div", {
                 staticClass: "corner-bar"
-            }[ n("div", {
+            }, [n("div", {
                 staticClass: "item",
                 on: {
                     click: t.DailySign

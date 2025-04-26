@@ -885,10 +885,8 @@
                         return;
                     }
                     
-                    // 从window环境变量获取serverUrl
-                    const serverUrl = window.serverUrl || '';
-                    
-                    fetch(`${serverUrl}/api/v1/user/signin`, {
+
+                    fetch(`${ $theme_config['server_url'] }/api/v1/user/signin`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',

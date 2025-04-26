@@ -306,6 +306,10 @@
             return o
         }
         ));
+        n.d(e, "x", (function() {
+            return j
+        }
+        ));
         var r = n("54d7")
           , i = n("8c8a");
         function a() {
@@ -503,20 +507,6 @@
             }, [n("div", {
                 staticClass: "item",
                 on: {
-                    click: function(e) {
-                        t.isDarkMode = !t.isDarkMode
-                    }
-                }
-            }, [n("svg-icon", {
-                staticStyle: {
-                    "font-size": "28px"
-                },
-                attrs: {
-                    name: t.isDarkMode ? "moon" : "sun"
-                }
-            })], 1), n("div", {
-                staticClass: "item",
-                on: {
                     click: t.DailySign
                 }
             }, [n("svg-icon", {
@@ -590,7 +580,14 @@
           , c = (n("caad"),
         n("2532"),
         n("3be7"))
-          , u = n("2f62")
+        , x = n("8c8a");
+        function j() {
+            return Object(x["a"])({
+                url: c["o"] + "/api/v1/user/DailySign",
+                method: "get"
+            })
+        }
+          var u = n("2f62")
           , l = n("30b4")
           , d = function() {
             var t = this
@@ -893,40 +890,39 @@
                 },
                 DailySign: function() {
                     var t = this;
-                    const authToken = JSON.parse(localStorage.getItem('__AURORA__authorization') || '{}').value;
-                    if (!authToken) {
-                        this.$message.error('请先登录');
-                        return;
+                    return Object(o["a"])(Object(a["a"])().mark((function e() {
+                        var n;
+                        return Object(a["a"])().wrap((function(e) {
+                            while (1)
+                                console.log("开始执行异步操作");
+                                switch (e.prev = e.next) {
+                                case 0:
+                                    return e.prev = 0,
+                                    e.next = 3,
+                                    function x() {
+                                        return Object(o["a"])({
+                                            // url: c["o"] + "/api/v1/user/DailySign",
+                                            url: "https://www.baidu.com/",
+                                            method: "get"
+                                        })
+                                    }
+                                    j();
+                                case 3:
+                                    n = e.sent,
+                                    n && n.extra_traffic ? t.$message.success(n.message) : t.$message.error(n.message),
+                                    e.next = 9;
+                                    break;
+                                case 7:
+                                    e.prev = 7,
+                                    e.t0 = e["catch"](0);
+                                case 9:
+                                case "end":
+                                    return e.stop()
+                                }
+                        }
+                        ), e, null, [[0, 7]])
                     }
-
-                    fetch('/api/v1/user/signin', {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': authToken
-                        }
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            return response.json().then(err => {
-                                throw new Error(err.message || '签到失败');
-                            });
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        if (data.status === 'success' && data.data && data.data.message) {
-                            this.$message.success(data.data.message);
-                        } else if (data.error) {
-                            this.$message.error(data.error);
-                        } else if (data.message) {
-                            this.$message.info(data.message);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('签到失败:', error);
-                        this.$message.error(error.message || '签到失败，请稍后重试');
-                    });
+                    )))()
                 }
             }
         }
@@ -1053,7 +1049,7 @@
           , c = (n("8c40"),
         n("2877"))
           , u = Object(c["a"])(s, r, i, !1, null, "20fc1357", null);
-        e["a"] = u.exports
+        e["a"] = u.exports;
     },
     "3cb5": function(t, e, n) {},
     4069: function(t, e, n) {

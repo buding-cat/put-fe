@@ -16,17 +16,15 @@ function checkAndSetLanguage() {
 // 执行检查
 checkAndSetLanguage();
 
-// 首先设置本地存储为浅色模式
-localStorage.setItem('__AURORA__Darkmode', '{"value":"light","expire":null}');
-console.log('初始化: 已将主题设置为浅色模式 (light)');
 
 // 然后修改 isDarkMode 函数确保它始终返回 false
 function isDarkMode() {
+
   console.log('isDarkMode 函数被调用');
-  
   // 读取当前设置（仅用于日志）
   var currentSetting = localStorage.getItem('__AURORA__Darkmode');
   console.log('调用前的主题设置:', currentSetting);
+
   
   // 强制设置为浅色模式
   localStorage.setItem('__AURORA__Darkmode', '{"value":"light","expire":null}');

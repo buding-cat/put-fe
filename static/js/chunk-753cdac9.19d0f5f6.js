@@ -886,7 +886,7 @@
                     }
                     
 
-                    fetch(`${ $theme_config['server_url'] }/api/v1/user/signin`, {
+                    fetch(`${window.EnvConfig.serverUrl}/api/v1/user/signin`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
